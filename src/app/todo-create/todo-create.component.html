@@ -1,0 +1,3 @@
+<form class="form" [formGroup]="todoForm" (ngSubmit)="todoForm.isValid ? createTodo(todoForm.value) : false">
+    <input type="text" class="form-control" placeholder="Create task" formControlName="content">
+</form>
