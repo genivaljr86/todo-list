@@ -2,12 +2,12 @@
   "todos": [
     {
       "id": 1,
-      "content": "Aprender Angular 8",
+      "content": "Aprender Angular 9",
       "done": 0
     },
     {
       "id": 2,
-      "content": "Criar uma task",
+      "content": "Criar uma task diferente",
       "done": 0
     }
   ]

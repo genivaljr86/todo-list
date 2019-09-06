@@ -5,7 +5,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Todo } from 'src/model/Todo';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 const apiUrl = 'http://localhost:3000/todos';
 
@@ -16,12 +16,23 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  getTodos(): Observable<Todo[]>{
+  getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(apiUrl).pipe(
       tap(todos => console.log('leu os todos')),
     )
   }
-  createTodo (todo): Observable<Todo>{
-    return this.http.post<Todo>(apiUrl,todo, httpOptions).pipe()
+
+  getTodo(id: number): Observable<Todo> {
+    return this.http.get<Todo>(apiUrl + "/" + id).pipe(
+      tap(todos => console.log(`Leu o id ${id}`)),
+    )
+  }
+
+  createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(apiUrl, todo, httpOptions).pipe()
+  }
+
+  editTodo(todo: Todo): Observable<Todo> {
+    return this.http.put<Todo>(apiUrl + "/" + todo.id, todo, httpOptions).pipe()
   }
 }
