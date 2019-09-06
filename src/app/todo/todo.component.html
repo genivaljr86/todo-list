@@ -3,7 +3,14 @@
     <div class="col-sm">
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let todo of todos">
-                <a routerLink="/todo-edit/{{todo.id}}">{{todo.content}}</a>
+                <div class="row">
+                    <div class="col-sm">
+                        <a class="btn btn-link" routerLink="/todo-edit/{{todo.id}}" >{{todo.content}}</a>
+                    </div>
+                    <div class="col-sm text-right">
+                        <button type="button" class="btn btn-link" (click)="deleteTodo(todo.id)" > X </button>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>

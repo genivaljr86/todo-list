@@ -35,4 +35,10 @@ export class TodoService {
   editTodo(todo: Todo): Observable<Todo> {
     return this.http.put<Todo>(apiUrl + "/" + todo.id, todo, httpOptions).pipe()
   }
+
+  removeTodo(id: number): Observable<Todo> {
+    return this.http.delete<Todo>(apiUrl + "/" + id).pipe(
+      tap(todos => console.log(`Removeu o id ${id}`)),
+    )
+  }
 }

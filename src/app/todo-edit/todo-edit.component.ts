@@ -16,9 +16,9 @@ export class TodoEditComponent implements OnInit {
 
   ngOnInit() {
     this.todoForm = this.formBuilder.group({
-      'id': [null],
-      'content': [null, Validators.required],
-      'done': [null]
+      'id': [''],
+      'content': ['', Validators.required],
+      'done': ['']
     })
     
     this.api.getTodo(this.route.snapshot.params['id']).subscribe(res =>{

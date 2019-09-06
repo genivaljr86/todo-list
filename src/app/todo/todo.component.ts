@@ -19,4 +19,12 @@ export class TodoComponent implements OnInit {
     })
   }
 
+  deleteTodo(id:number){
+    return this.api.removeTodo(id).subscribe(res =>{
+      this.api.getTodos().subscribe(res=>{
+        this.todos = res;
+      })
+    })
+  }
+
 }

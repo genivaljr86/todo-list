@@ -1,3 +1,5 @@
-<form class="form" [formGroup]="todoForm" (ngSubmit)="editTodo(todoForm.value)">
+<form class="form" [formGroup]="todoForm" (ngSubmit)="todoForm.valid ? editTodo(todoForm.value) : false">
+<!-- <form class="form" [formGroup]="todoForm" (ngSubmit)="editTodo(todoForm.value)"> -->
     <input type="text" class="form-control" placeholder="Create task" formControlName="content">
 </form>
+<a routerLink="/todo" class="btn btn-link">Back</a>
